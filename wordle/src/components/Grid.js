@@ -1,4 +1,5 @@
 import '../styles/Grid.css'
+
 const Grid = ({value, clickable}) => {
 
   return (
