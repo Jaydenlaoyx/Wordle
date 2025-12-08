@@ -1,0 +1,16 @@
+.keyboard {
+    /* position: fixed;
+    bottom: 0; */
+    border: black 1px solid;
+    border-radius: 0.5em;
+    width: 72vw;
+    position: fixed;
+    bottom: 0%;
+    right: 15%;
+}
+
+.keyboard-row {
+    display: flex;
+    margin: 0.5em 0;
+    justify-content: center;
+}

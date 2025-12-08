@@ -1,0 +1,17 @@
+.Grid {
+    border: black solid 2px;
+    border-radius: 0.5em;
+    margin: 0 0.5em;
+    padding: 1.5em 1em;
+    height: 3vh;
+    width: 3vw;
+    text-align: center;
+    font-size: 16px;
+}
+
+.clickable:hover {
+    border-color: rgb(0, 213, 53);
+    cursor: pointer;
+}
+
+
