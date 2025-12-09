@@ -1,10 +1,10 @@
 import '../styles/Grid.css'
 
-const Grid = ({value, clickable}) => {
+const Grid = ({position, value, gridState}) => {
 
   return (
     <>
-        <div className={clickable ? 'clickable Grid' : 'Grid'}>{value}</div>
+        <div className={'grid ' + gridState}>{value}</div>
     </ >
   )
 }

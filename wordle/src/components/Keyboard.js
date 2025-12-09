@@ -1,4 +1,4 @@
-import Grid from './Grid';
+import Key from './Key';
 import '../styles/Keyboard.css'
 
 const Keyboard = () => {
@@ -10,15 +10,24 @@ const Keyboard = () => {
   return (
     <div className='keyboard'>
         <div className='keyboard-row'>
-            {keyboardRow1.map((letter) => (<Grid value={letter} clickable={true}></ Grid>))}
+            {keyboardRow1.map((letter) => {return (
+              <Key 
+                value = {letter}>
+              </Key>)})}
         </div>
 
         <div className='keyboard-row'>
-            {keyboardRow2.map((letter) => (<Grid value={letter} clickable={true}></ Grid>))}
+            {keyboardRow2.map((letter) => {return (
+              <Key 
+                value = {letter}>
+              </Key>)})}
         </div>
 
         <div className='keyboard-row'>
-            {keyboardRow3.map((letter) => (<Grid value={letter} clickable={true}></ Grid>))}
+            {keyboardRow3.map((letter) => {return (
+              <Key 
+                value = {letter}>
+              </Key>)})}
         </div>
        
     </div >

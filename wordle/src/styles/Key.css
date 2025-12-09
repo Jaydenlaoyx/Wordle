@@ -1,4 +1,4 @@
-.grid {
+.key {
     border: black solid 2px;
     border-radius: 0.5em;
     margin: 0 0.5em;
@@ -9,14 +9,9 @@
     font-size: 16px;
 }
 
-.neutral {
-    background-color: white;
+.key:hover {
+    border-color: rgb(0, 213, 53);
+    cursor: pointer;
 }
 
-.misplaced {
-    background-color: rgb(230, 230, 4);
-}
 
-.correct {
-    background-color: green;
-}

@@ -2,6 +2,19 @@ import { useState } from 'react'
 import Grid from './Grid';
 import '../styles/Keyboard.css'
 
+// TO-DO
+
+/*
+1. make Key.js for each key in keyboard, and shift logic for keys from Grid.js to Key.js
+    -- each Key should have keyVal
+2. change Grid.js structure:
+    -- each Grid should have is pos and value
+3. change Attempts.js to have a predefined structure of Grids
+4. Game logic runs on App.js
+
+*/ 
+
+
 const Attempts = () => {
 
   const [attempts, setAttempts] = useState([[], [], [], [], [], []]);
@@ -10,41 +23,52 @@ const Attempts = () => {
     <>
         <div className='attempts'>
             <div className='keyboard-row'>
-                {attempts[0].length === 5 ? 
-                attempts[0].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
 
             <div className='keyboard-row'>
-                {attempts[1].length === 5 ? 
-                attempts[1].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
 
             <div className='keyboard-row'>
-                {attempts[2].length === 5 ? 
-                attempts[2].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
 
             <div className='keyboard-row'>
-                {attempts[3].length === 5 ? 
-                attempts[3].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
 
             <div className='keyboard-row'>
-                {attempts[4].length === 5 ? 
-                attempts[4].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
 
             <div className='keyboard-row'>
-                {attempts[5].length === 5 ? 
-                attempts[5].map((letter) => (<Grid value={letter} clickable={false}></ Grid>)) : 
-                ['', '', '', '', ''].map((letter) => (<Grid value={letter} clickable={false}></ Grid>))}
+                <Grid position={0} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={1} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={2} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={3} value={''} gridState={'neutral'}></ Grid>
+                <Grid position={4} value={''} gridState={'neutral'}></ Grid>
             </div>
-            
         </div>
     </ >
   )
