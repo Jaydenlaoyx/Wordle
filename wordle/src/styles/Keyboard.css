@@ -1,12 +1,14 @@
 .keyboard {
     /* position: fixed;
     bottom: 0; */
-    border: black 1px solid;
+    border: whitesmoke 1px solid;
     border-radius: 0.5em;
+    color: whitesmoke;
     width: 72vw;
-    position: fixed;
-    bottom: 0%;
-    right: 15%;
+    margin: auto;
+    /* position: fixed; */
+    /* bottom: 0%; */
+    /* right: 15%; */
 }
 
 .keyboard-row {

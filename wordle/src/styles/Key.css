@@ -1,5 +1,5 @@
 .key {
-    border: black solid 2px;
+    border: whitesmoke solid 2px;
     border-radius: 0.5em;
     margin: 0 0.5em;
     padding: 1.2em 0.8em;
@@ -7,6 +7,7 @@
     width: 2vw;
     text-align: center;
     font-size: 16px;
+    color: whitesmoke;
 }
 
 .key:hover {

@@ -1,4 +1,9 @@
+body {
+    background-color: #131313;
+}
+
 .title {
     display: flex;
     justify-content: center;
+    color: #FFC25F;
 }

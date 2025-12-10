@@ -12,6 +12,7 @@ const Keyboard = () => {
         <div className='keyboard-row'>
             {keyboardRow1.map((letter) => {return (
               <Key 
+                key = {letter}
                 value = {letter}>
               </Key>)})}
         </div>
@@ -19,6 +20,7 @@ const Keyboard = () => {
         <div className='keyboard-row'>
             {keyboardRow2.map((letter) => {return (
               <Key 
+                key = {letter}
                 value = {letter}>
               </Key>)})}
         </div>
@@ -26,6 +28,7 @@ const Keyboard = () => {
         <div className='keyboard-row'>
             {keyboardRow3.map((letter) => {return (
               <Key 
+                key = {letter}
                 value = {letter}>
               </Key>)})}
         </div>
