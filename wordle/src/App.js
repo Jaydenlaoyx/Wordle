@@ -8,6 +8,8 @@ function App() {
   const [attempts, setAttempts] = useState(['', '', '', '', '', '']);
   const [currAttempt, setCurrAttempt] = useState(0);
   const [currGuess,  setCurrGuess] = useState('');
+  const [gameOver, setGameOver] = useState(false);
+  const [gamewon, setGameWon] = useState(false);
 
   // handle keyboard clicks
   const handleOnClick = (event) => {
@@ -24,7 +26,10 @@ function App() {
 
   const handleEnterClick = () => {
     let newAttempt = [];
-    if (currAttempt === 0) {
+    if (currAttempt === 5) {
+      setGameOver(true);
+    }
+    else if (currAttempt === 0) {
       newAttempt.push(currGuess);
       for (let i = 0; i < 6 - currAttempt; i++) {
         newAttempt.push([]);
@@ -101,8 +106,8 @@ function App() {
       <nav>
         <h1 className='title'>Wordle</h1>
       </nav>
-      <Attempts attempts={attempts} currAttempt={currAttempt}/>
-      <Keyboard onKeyDown={handleOnClick}/>
+      {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt}/>}
+      {!gameOver &&<Keyboard onKeyDown={handleOnClick}/>}
     </div>
   );
 }
