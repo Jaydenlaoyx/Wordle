@@ -20,10 +20,11 @@ function App() {
       case "Backspace":
         return handleBackspaceClick();
       default:
-        return handleLetterClick(event.key);
+        return checkKey(event.key) ? handleLetterClick(event.key) : false;
     }
   };
 
+  // handles when 'Enter' is clicked 
   const handleEnterClick = () => {
     let newAttempt = [];
     if (currAttempt === 5) {
@@ -50,6 +51,7 @@ function App() {
     console.log("after enter: attempt = " + attempts);
   };
 
+  // handles when 'backspace' is clicked
   const handleBackspaceClick = () => {
     if (currGuess.length > 0) {
       let newCurrGuess = currGuess.slice(0, currGuess.length - 1);
@@ -58,12 +60,23 @@ function App() {
     console.log('backspace is pressed');
   };
 
+  // handles when any valid letter is clicked 
   const handleLetterClick = (key) => {
     //console.log(key + ' is pressed');
     if (currGuess.length < 5) {
-      setCurrGuess(currGuess + key);
+      setCurrGuess(currGuess + key.toUpperCase());
     }
   };
+
+  // function to check if a letter is valid letter (i.e. not tab, shift or other functional keys)
+  const checkKey = (key) => {
+    const acceptedLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 
+      'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+    if (acceptedLetters.includes(key.toUpperCase())) {
+      return true;
+    }
+    return false
+  }
 
   // listens to keyboard enters
   useEffect(() => {

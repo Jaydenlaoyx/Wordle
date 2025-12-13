@@ -3,9 +3,9 @@ import '../styles/Keyboard.css'
 
 const Keyboard = () => {
 
-  const keyboardRow1 = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'];
-  const keyboardRow2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
-  const keyboardRow3 = ['↵', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'del'];
+  const keyboardRow1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
+  const keyboardRow2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
+  const keyboardRow3 = ['↵', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'Del'];
 
   return (
     <div className='keyboard'>
