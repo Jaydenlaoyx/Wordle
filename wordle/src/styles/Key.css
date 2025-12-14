@@ -11,8 +11,10 @@
 }
 
 .key:hover {
-    border-color: rgb(0, 213, 53);
     cursor: pointer;
+    background-color: whitesmoke;
+    color: #131313;
+    font-weight: 700;
 }
 
 

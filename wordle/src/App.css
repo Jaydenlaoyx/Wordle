@@ -8,13 +8,13 @@ body {
     color: #FFC25F;
 }
 
-.winGameContents {
+.endGameContents {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.winTitle {
+.endGameTitle {
     color: whitesmoke;
     font-size: xx-large;
     font-weight: 900;
@@ -32,7 +32,7 @@ body {
     margin: auto;
 }
 
-.winningCaption {
+.endGameCaption {
     font-size: larger;
     font-weight: 700;
     color: whitesmoke;

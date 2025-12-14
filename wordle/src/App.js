@@ -132,14 +132,13 @@ function App() {
       </nav>
       {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt}/>}
       {!gameOver &&<Keyboard onKeyDown={handleOnClick}/>}
-      {gameOver && gameWon && 
-        <div className='winGameContents'>
-          <div className='winTitle'>CONGRATULATIONS!</div>
+      {gameOver && 
+        <div className='endGameContents'>
+          <div className='endGameTitle'>{gameWon ? 'CONGRATULATIONS!' : 'GAME OVER!'}</div>
           <div className='answerReveal'>{correctAnswer}</div>
-          <div className='winningCaption'>You've guessed the word!</div>
+          <div className='endGameCaption'>{gameWon? 'You\'ve guessed the word!': 'You did not guess the word!'}</div>
           <button className='newGameButton' onClick={handleOnClickNewGame}>New Game</button>
       </div>}
-      {gameOver && !gameWon}
     </div>
   );
 }
