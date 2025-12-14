@@ -8,8 +8,9 @@ function App() {
   const [attempts, setAttempts] = useState(['', '', '', '', '', '']);
   const [currAttempt, setCurrAttempt] = useState(0);
   const [currGuess,  setCurrGuess] = useState('');
-  const [gameOver, setGameOver] = useState(false);
-  const [gamewon, setGameWon] = useState(false);
+  const [gameOver, setGameOver] = useState(true);
+  const [gameWon, setGameWon] = useState(true);
+  const [correctAnswer, setCorrectAnswer] = useState('MANGO');
 
   // handle keyboard clicks
   const handleOnClick = (event) => {
@@ -78,6 +79,16 @@ function App() {
     return false
   }
 
+  // function to handle when new game button is clicked (i.e. start new game)
+  const handleOnClickNewGame = () => {
+    setGameOver(false);
+    setGameWon(false);
+    setCurrAttempt(0);
+    setCurrGuess('');
+    setAttempts(['', '', '', '', '', '']);
+    // generate new answer (update this when doing the answer genration part)
+  }
+
   // listens to keyboard enters
   useEffect(() => {
     document.addEventListener("keydown", handleOnClick)
@@ -121,6 +132,14 @@ function App() {
       </nav>
       {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt}/>}
       {!gameOver &&<Keyboard onKeyDown={handleOnClick}/>}
+      {gameOver && gameWon && 
+        <div className='winGameContents'>
+          <div className='winTitle'>CONGRATULATIONS!</div>
+          <div className='answerReveal'>{correctAnswer}</div>
+          <div className='winningCaption'>You've guessed the word!</div>
+          <button className='newGameButton' onClick={handleOnClickNewGame}>New Game</button>
+      </div>}
+      {gameOver && !gameWon}
     </div>
   );
 }

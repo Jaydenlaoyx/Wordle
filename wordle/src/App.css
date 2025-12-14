@@ -7,3 +7,51 @@ body {
     justify-content: center;
     color: #FFC25F;
 }
+
+.winGameContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.winTitle {
+    color: whitesmoke;
+    font-size: xx-large;
+    font-weight: 900;
+    margin: 3em auto 1em auto;
+
+}
+
+.answerReveal {
+    font-size: xxx-large;
+    font-weight: 700;
+    color: #FFC25F;
+    border: #FFC25F solid 2px;
+    border-radius: 8px;
+    padding: 0.1em 0.5em;
+    margin: auto;
+}
+
+.winningCaption {
+    font-size: larger;
+    font-weight: 700;
+    color: whitesmoke;
+    margin: 1em  auto 0 auto;
+}
+
+.newGameButton {
+    font-size: x-large;
+    font-weight: 500;
+    color: whitesmoke;
+    background-color: #131313;
+    border: #FFC25F solid 2px;
+    border-radius: 8px;
+    margin: 2em auto 0 auto;
+    padding: 0.2em 0.5em;
+}
+
+.newGameButton:hover {
+    cursor: pointer;
+    background-color: #FFC25F;
+    color: #131313;
+}
