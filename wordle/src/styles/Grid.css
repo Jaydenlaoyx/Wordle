@@ -7,6 +7,7 @@
     width: 2vw;
     text-align: center;
     font-size: 16px;
+    font-weight: 700;
     color: whitesmoke;
 }
 
@@ -15,9 +16,13 @@
 }
 
 .misplaced {
-    background-color: rgb(230, 230, 4);
+    background-color: rgb(183, 183, 16);
 }
 
 .correct {
     background-color: green;
+}
+
+.absent {
+    background-color: rgb(40, 40, 40);
 }

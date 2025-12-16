@@ -1,6 +1,6 @@
 import '../styles/Grid.css'
 
-const Grid = ({position, value, gridState}) => {
+const Grid = ({value, gridState}) => {
 
   return (
     <>

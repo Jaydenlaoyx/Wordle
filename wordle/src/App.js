@@ -8,9 +8,10 @@ function App() {
   const [attempts, setAttempts] = useState(['', '', '', '', '', '']);
   const [currAttempt, setCurrAttempt] = useState(0);
   const [currGuess,  setCurrGuess] = useState('');
-  const [gameOver, setGameOver] = useState(true);
-  const [gameWon, setGameWon] = useState(true);
-  const [correctAnswer, setCorrectAnswer] = useState('MANGO');
+  const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState('LEVEL');
+  const [isGuessSubmission, setIsGuessSubmission] = useState(false);
 
   // handle keyboard clicks
   const handleOnClick = (event) => {
@@ -27,29 +28,29 @@ function App() {
 
   // handles when 'Enter' is clicked 
   const handleEnterClick = () => {
-    let newAttempt = [];
-    if (currAttempt === 5) {
-      setGameOver(true);
+    if (currGuess.length === 5) {
+      let newAttempt = [];
+      if (currAttempt === 5) {
+        setGameOver(true);
+      }
+      else if (currAttempt === 0) {
+        newAttempt.push(currGuess);
+        for (let i = 0; i < 5; i++) {
+          newAttempt.push('');
+        }
+      } 
+      else {
+        for (let i = 0; i < currAttempt; i++) {
+          newAttempt.push(attempts[i]);
+        }
+        newAttempt.push(currGuess);
+        for (let i = 0; i < 5 - currAttempt; i++) {
+          newAttempt.push('');
+        }
+      }
+      setIsGuessSubmission(true);
+      setAttempts(newAttempt);
     }
-    else if (currAttempt === 0) {
-      newAttempt.push(currGuess);
-      for (let i = 0; i < 6 - currAttempt; i++) {
-        newAttempt.push([]);
-      }
-    } 
-    else {
-      for (let i = 0; i < currAttempt; i++) {
-        newAttempt.push(attempts[i]);
-      }
-      newAttempt.push(currGuess);
-      for (let i = 0; i < 6 - currAttempt; i++) {
-        newAttempt.push([]);
-      }
-    }
-    setAttempts(newAttempt);
-    setCurrGuess('');
-    setCurrAttempt(currAttempt + 1);
-    console.log("after enter: attempt = " + attempts);
   };
 
   // handles when 'backspace' is clicked
@@ -58,15 +59,15 @@ function App() {
       let newCurrGuess = currGuess.slice(0, currGuess.length - 1);
       setCurrGuess(newCurrGuess);
     }
-    console.log('backspace is pressed');
+    setIsGuessSubmission(false);
   };
 
   // handles when any valid letter is clicked 
   const handleLetterClick = (key) => {
-    //console.log(key + ' is pressed');
     if (currGuess.length < 5) {
       setCurrGuess(currGuess + key.toUpperCase());
     }
+    setIsGuessSubmission(false);
   };
 
   // function to check if a letter is valid letter (i.e. not tab, shift or other functional keys)
@@ -97,32 +98,34 @@ function App() {
     }
   });
 
+  useEffect(() => {
+    if (isGuessSubmission) {
+      setCurrAttempt(currAttempt + 1);
+      setCurrGuess('');
+    }
+    setIsGuessSubmission(false);
+  }, [isGuessSubmission])
+
   // update the attempt state
   useEffect(() => {
     
-    if (currGuess !== '') {
-      console.log('word is '+ currGuess + " and attempts is " + attempts);
-      let newAttempt = [];
-      if (currAttempt === 0) {
-        newAttempt.push(currGuess);
-        for (let i = 0; i < 6 - currAttempt; i++) {
-          newAttempt.push([]);
-        }
-      } 
-      else {
-        for (let i = 0; i < currAttempt; i++) {
-          newAttempt.push(attempts[i]);
-        }
-        newAttempt.push(currGuess);
-        for (let i = 0; i < 6 - currAttempt; i++) {
-          newAttempt.push([]);
-        }
+    let newAttempt = [];
+    if (currAttempt === 0) {
+      newAttempt.push(currGuess);
+      for (let i = 0; i < 5 - currAttempt; i++) {
+        newAttempt.push([]);
       }
-      setAttempts(newAttempt);
-    }
+    } 
     else {
-      console.log('--word is '+ currGuess + " and attempts is " + attempts);
+      for (let i = 0; i < currAttempt; i++) {
+        newAttempt.push(attempts[i]);
+      }
+      newAttempt.push(currGuess);
+      for (let i = 0; i < 5 - currAttempt; i++) {
+        newAttempt.push([]);
+      }
     }
+    setAttempts(newAttempt);
   }, [currGuess]);
 
   return (
@@ -130,7 +133,7 @@ function App() {
       <nav>
         <h1 className='title'>Wordle</h1>
       </nav>
-      {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt}/>}
+      {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt} answer={correctAnswer} isGuessSubmission={isGuessSubmission}/>}
       {!gameOver &&<Keyboard onKeyDown={handleOnClick}/>}
       {gameOver && 
         <div className='endGameContents'>
