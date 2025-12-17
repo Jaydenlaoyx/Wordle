@@ -39,6 +39,11 @@ function App() {
       let newAttempt = [];
       if (currAttempt === 5) {
         setGameOver(true);
+        setGameWon(false);
+      }
+      else if (currGuess === correctAnswer) {
+        setGameOver(true);
+        setGameWon(true);
       }
       else if (currAttempt === 0) {
         newAttempt.push(currGuess);
