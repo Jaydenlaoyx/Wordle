@@ -1,9 +1,10 @@
 import React from 'react'
 import '../styles/Key.css'
+import '../styles/Grid.css'
 
-const Key = ({ value }) => {
+const Key = ({ value, state }) => {
   return (
-    <div className='key'>{value}</div>
+    <div className={'key ' + state}>{value}</div>
   )
 }
 

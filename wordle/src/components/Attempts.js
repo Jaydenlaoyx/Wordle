@@ -12,12 +12,33 @@ import '../styles/Keyboard.css'
 3. change Attempts.js to have a predefined structure of Grids
 4. Game logic runs on App.js
 
-*/ 
+*/
 
-
-const Attempts = ({attempts, currAttempt, answer, isGuessSubmission}) => {
+const Attempts = ({attempts, currAttempt, answer, isGuessSubmission, updateStatesDict}) => {
 
   const [attemptsState, setAttemptsState] = useState([[], [], [], [], [], []]);
+
+  const updateLettersStateDict = (key, newState) => {
+    if (newState === 'correct') {
+        updateStatesDict(oldDict => ({
+        ...oldDict,
+        [key]: newState
+        }));
+    }
+    else if (newState === 'misplaced' ) {
+         updateStatesDict( oldDict => ({
+        ...oldDict,
+        [key]: oldDict[key] !== 'correct' ? newState : oldDict[key]
+        }));
+    }
+    else if (newState === 'absent' ) {
+        console.log()
+         updateStatesDict( oldDict => ({
+        ...oldDict,
+        [key]: oldDict[key] !== 'absent' ? newState : oldDict[key]
+        }));
+    }
+  };
 
   // calculate the state of each guess
   const calculateGridState = (attempts, currAttempt, answer, isGuessSubmission) => {
@@ -34,6 +55,7 @@ const Attempts = ({attempts, currAttempt, answer, isGuessSubmission}) => {
                 for (let j = 0; j < 5; j++) {
                     if (guess[j] === answer[j]) {
                         attemptState[j] = 'correct';
+                        updateLettersStateDict(guess[j], 'correct');
                         answerConsumptionState[j] = true;
                     }
                 }
@@ -47,12 +69,16 @@ const Attempts = ({attempts, currAttempt, answer, isGuessSubmission}) => {
                                 if (!answerConsumptionState[pos]) {
                                     answerConsumptionState[pos] = true;
                                     attemptState[j] = 'misplaced';
+                                    updateLettersStateDict(guess[j], 'misplaced');
                                     break;
                                 }
                                 else {
                                     pos = answer.indexOf(guess[j], pos+1);
                                 }
                             }
+                        }
+                        else {
+                            updateLettersStateDict(guess[j], 'absent');
                         }
                     }
                 }

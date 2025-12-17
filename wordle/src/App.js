@@ -10,8 +10,15 @@ function App() {
   const [currGuess,  setCurrGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState('LEVEL');
+  const [correctAnswer, setCorrectAnswer] = useState('EEVEE');
   const [isGuessSubmission, setIsGuessSubmission] = useState(false);
+  const [allLettersStateDict, setAllLettersStateDict] = useState({
+    "A": 'neutral', "B": 'neutral', "C": 'neutral', "D": 'neutral', "E": 'neutral', "F": 'neutral', "G": 'neutral',
+    "H": 'neutral', "I": 'neutral', "J": 'neutral', "K": 'neutral', "L": 'neutral', "M": 'neutral', "N": 'neutral',
+    "O": 'neutral', "P": 'neutral', "Q": 'neutral', "R": 'neutral', "S": 'neutral', "T": 'neutral', "U": 'neutral',
+    "V": 'neutral', "W": 'neutral', "X": 'neutral', "Y": 'neutral', "Z": 'neutral', "Del": 'neutral', "↵": 'neutral'
+  });
+
 
   // handle keyboard clicks
   const handleOnClick = (event) => {
@@ -80,6 +87,11 @@ function App() {
     return false
   }
 
+  // function to update the letters state dict so that keyboard can reflect the correct state for every letter
+  const updateStatesDict = (dict) => {
+    setAllLettersStateDict(dict);
+  }
+
   // function to handle when new game button is clicked (i.e. start new game)
   const handleOnClickNewGame = () => {
     setGameOver(false);
@@ -133,8 +145,13 @@ function App() {
       <nav>
         <h1 className='title'>Wordle</h1>
       </nav>
-      {!gameOver && <Attempts attempts={attempts} currAttempt={currAttempt} answer={correctAnswer} isGuessSubmission={isGuessSubmission}/>}
-      {!gameOver &&<Keyboard onKeyDown={handleOnClick}/>}
+      {!gameOver && <Attempts 
+        attempts={attempts} 
+        currAttempt={currAttempt} 
+        answer={correctAnswer} 
+        isGuessSubmission={isGuessSubmission}
+        updateStatesDict={updateStatesDict}/>}
+      {!gameOver && <Keyboard onKeyDown={handleOnClick} allLettersStateDict={allLettersStateDict}/>}
       {gameOver && 
         <div className='endGameContents'>
           <div className='endGameTitle'>{gameWon ? 'CONGRATULATIONS!' : 'GAME OVER!'}</div>

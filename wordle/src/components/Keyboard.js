@@ -1,7 +1,7 @@
 import Key from './Key';
 import '../styles/Keyboard.css'
 
-const Keyboard = () => {
+const Keyboard = ({allLettersStateDict}) => {
 
   const keyboardRow1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
   const keyboardRow2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
@@ -13,7 +13,8 @@ const Keyboard = () => {
             {keyboardRow1.map((letter) => {return (
               <Key 
                 key = {letter}
-                value = {letter}>
+                value = {letter}
+                state = {allLettersStateDict[letter]}>
               </Key>)})}
         </div>
 
@@ -21,7 +22,8 @@ const Keyboard = () => {
             {keyboardRow2.map((letter) => {return (
               <Key 
                 key = {letter}
-                value = {letter}>
+                value = {letter}
+                state = {allLettersStateDict[letter]}>
               </Key>)})}
         </div>
 
@@ -29,7 +31,8 @@ const Keyboard = () => {
             {keyboardRow3.map((letter) => {return (
               <Key 
                 key = {letter}
-                value = {letter}>
+                value = {letter}
+                state = {allLettersStateDict[letter]}>
               </Key>)})}
         </div>
        
