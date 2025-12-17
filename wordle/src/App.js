@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import './App.css';
 import Attempts from './components/Attempts';
 import Keyboard from './components/Keyboard';
+import Grid from './components/Grid';
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
   const [currGuess,  setCurrGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState('EEVEE');
+  const [correctAnswer, setCorrectAnswer] = useState('LEMON');
   const [isGuessSubmission, setIsGuessSubmission] = useState(false);
   const [allLettersStateDict, setAllLettersStateDict] = useState({
     "A": 'neutral', "B": 'neutral', "C": 'neutral', "D": 'neutral', "E": 'neutral', "F": 'neutral', "G": 'neutral',
@@ -160,7 +161,14 @@ function App() {
       {gameOver && 
         <div className='endGameContents'>
           <div className='endGameTitle'>{gameWon ? 'CONGRATULATIONS!' : 'GAME OVER!'}</div>
-          <div className='answerReveal'>{correctAnswer}</div>
+          {/* <div className='answerReveal'>{correctAnswer}</div> */}
+          <div className='answerReveal'>
+            <Grid value={correctAnswer.slice(0,1)} gridState={'correct'}></Grid>
+            <Grid value={correctAnswer.slice(1,2)} gridState={'correct'}></Grid>
+            <Grid value={correctAnswer.slice(2,3)} gridState={'correct'}></Grid>
+            <Grid value={correctAnswer.slice(3,4)} gridState={'correct'}></Grid>
+            <Grid value={correctAnswer.slice(4,5)} gridState={'correct'}></Grid>
+          </div>
           <div className='endGameCaption'>{gameWon? 'You\'ve guessed the word!': 'You did not guess the word!'}</div>
           <button className='newGameButton' onClick={handleOnClickNewGame}>New Game</button>
       </div>}

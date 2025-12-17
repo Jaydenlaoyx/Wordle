@@ -1,12 +1,12 @@
 .grid {
     border: whitesmoke solid 2px;
     border-radius: 0.5em;
-    margin: 0 0.5em;
-    padding: 1.2em 0.8em;
-    height: 2vh;
-    width: 2vw;
+    margin: 0 0.4em;
+    padding: 0.8em 0.8em;
+    height: 22px;
+    width: 22px;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 700;
     color: whitesmoke;
 }

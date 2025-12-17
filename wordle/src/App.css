@@ -23,10 +23,11 @@ body {
 }
 
 .answerReveal {
+    display: flex;
     font-size: xxx-large;
     font-weight: 700;
     color: #FFC25F;
-    border: #FFC25F solid 2px;
+    /* border: #FFC25F solid 2px; */
     border-radius: 8px;
     padding: 0.1em 0.5em;
     margin: auto;
