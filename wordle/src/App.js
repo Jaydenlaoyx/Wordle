@@ -169,11 +169,11 @@ function App() {
           <div className='endGameTitle'>{gameWon ? 'CONGRATULATIONS!' : 'GAME OVER!'}</div>
           {/* <div className='answerReveal'>{correctAnswer}</div> */}
           <div className='answerReveal'>
-            <Grid value={correctAnswer.slice(0,1)} gridState={'correct'}></Grid>
-            <Grid value={correctAnswer.slice(1,2)} gridState={'correct'}></Grid>
-            <Grid value={correctAnswer.slice(2,3)} gridState={'correct'}></Grid>
-            <Grid value={correctAnswer.slice(3,4)} gridState={'correct'}></Grid>
-            <Grid value={correctAnswer.slice(4,5)} gridState={'correct'}></Grid>
+            <Grid value={correctAnswer.slice(0,1)} gridState={'correct rotatable'}></Grid>
+            <Grid value={correctAnswer.slice(1,2)} gridState={'correct rotatable'}></Grid>
+            <Grid value={correctAnswer.slice(2,3)} gridState={'correct rotatable'}></Grid>
+            <Grid value={correctAnswer.slice(3,4)} gridState={'correct rotatable'}></Grid>
+            <Grid value={correctAnswer.slice(4,5)} gridState={'correct rotatable'}></Grid>
           </div>
           <div className='endGameCaption'>{gameWon? 'You\'ve guessed the word!': 'You did not guess the word!'}</div>
           <button className='newGameButton' onClick={handleOnClickNewGame}>New Game</button>

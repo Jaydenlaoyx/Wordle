@@ -26,3 +26,36 @@
 .absent {
     background-color: rgb(79, 79, 79);
 }
+
+.rotatable {
+    animation: horizontal-flip 1.2s linear;
+}
+
+.rotatable:nth-child(1) {
+  animation-delay: 0s;
+}
+.rotatable:nth-child(2) {
+  animation-delay: 0.7s;
+}
+.rotatable:nth-child(3) {
+  animation-delay: 1.4s;
+}
+.rotatable:nth-child(4) {
+  animation-delay: 2.1s;
+}
+.rotatable:nth-child(5) {
+  animation-delay: 2.8s;
+}
+
+/* Define the keyframes for the animation */
+@keyframes horizontal-flip {
+  0% {
+    transform: rotateY(0deg); /* Starts flat */
+  }
+  50% {
+    transform: rotateY(180deg); /* Flips halfway */
+  }
+  100% {
+    transform: rotateY(360deg); /* Completes full rotation back to start */
+  }
+}
