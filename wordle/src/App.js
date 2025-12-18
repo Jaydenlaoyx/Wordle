@@ -3,6 +3,7 @@ import './App.css';
 import Attempts from './components/Attempts';
 import Keyboard from './components/Keyboard';
 import Grid from './components/Grid';
+import words from './wordle-words.txt'
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
   const [currGuess,  setCurrGuess] = useState('');
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
-  const [correctAnswer, setCorrectAnswer] = useState('LEMON');
+  const [correctAnswer, setCorrectAnswer] = useState('');
   const [isGuessSubmission, setIsGuessSubmission] = useState(false);
   const [allLettersStateDict, setAllLettersStateDict] = useState({
     "A": 'neutral', "B": 'neutral', "C": 'neutral', "D": 'neutral', "E": 'neutral', "F": 'neutral', "G": 'neutral',
@@ -20,10 +21,21 @@ function App() {
     "V": 'neutral', "W": 'neutral', "X": 'neutral', "Y": 'neutral', "Z": 'neutral', "Del": 'neutral', "↵": 'neutral'
   });
 
+  // generate answer 
+  const generateAnswer = () => {
+    fetch(words)
+      .then(response => response.text())
+      .then(data => {
+        let randInt = Math.floor(Math.random() * data.split('\n').length);
+        setCorrectAnswer(data.split('\n')[randInt].toUpperCase());
+      })
+      .catch(error => {
+        console.log('Error fetching the text file')
+      });
+  }
 
   // handle keyboard clicks
   const handleOnClick = (event) => {
-
     switch (event.key) {
       case "Enter":
         return handleEnterClick();
@@ -111,8 +123,13 @@ function App() {
     setCurrAttempt(0);
     setCurrGuess('');
     setAttempts(['', '', '', '', '', '']);
-    // generate new answer (update this when doing the answer genration part)
+    generateAnswer();
   }
+
+  // generate answer once on render
+  useEffect(() => {
+    generateAnswer();
+  }, []);
 
   // listens to keyboard enters
   useEffect(() => {
