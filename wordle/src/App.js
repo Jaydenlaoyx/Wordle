@@ -123,6 +123,12 @@ function App() {
     setCurrAttempt(0);
     setCurrGuess('');
     setAttempts(['', '', '', '', '', '']);
+    setAllLettersStateDict({
+      "A": 'neutral', "B": 'neutral', "C": 'neutral', "D": 'neutral', "E": 'neutral', "F": 'neutral', "G": 'neutral',
+      "H": 'neutral', "I": 'neutral', "J": 'neutral', "K": 'neutral', "L": 'neutral', "M": 'neutral', "N": 'neutral',
+      "O": 'neutral', "P": 'neutral', "Q": 'neutral', "R": 'neutral', "S": 'neutral', "T": 'neutral', "U": 'neutral',
+      "V": 'neutral', "W": 'neutral', "X": 'neutral', "Y": 'neutral', "Z": 'neutral', "Del": 'neutral', "↵": 'neutral'
+    });
     generateAnswer();
   }
 
