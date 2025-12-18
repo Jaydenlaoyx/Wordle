@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# 🟩 Wordle Clone (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A personal project recreating the popular **Wordle** word-guessing game using **React.js**. This project was built to practice modern React fundamentals, state management, and UI feedback, and is deployed live on **Vercel**.
 
-## Available Scripts
+## 🎯 Features
 
-In the project directory, you can run:
+* Classic Wordle-style gameplay
+* 5-letter word guessing
+* Limited number of attempts (6)
+* Real-time letter feedback:
 
-### `npm start`
+  * 🟩 Correct letter & correct position
+  * 🟨 Correct letter, wrong position
+  * ⬜ Letter not in the word
+* Keyboard and on-screen input support
+* Responsive UI for desktop and mobile
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Frontend:** React.js (JavaScript)
+* **Styling:** CSS
+* **Animation:** GSAP
+* **Deployment:** Vercel
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🚀 Live Demo
 
-### `npm run build`
+👉 **Live App:** https://wordle-jl7g.vercel.app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📦 Getting Started (Local Setup)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To run this project locally:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/<repo-name>.git
 
-### `npm run eject`
+# Navigate into the project
+cd <repo-name>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Install dependencies
+npm install
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Start the development server
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app will be available at `http://localhost:3000`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🧠 What I Learned
 
-## Learn More
+* Building reusable React components
+* Managing game state with React hooks
+* Handling user input and validation
+* Conditional rendering for visual feedback
+* Deploying a React app using Vercel
+* Applying animation using GSAP
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📌 Future Improvements
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Daily word mode
+* Different game mode (e.g. Timed challenged, Multiplayer)
+* Word bank differentiation (i.e. common words vs all eligible words)
+* Game statistics (win streaks, attempts)
+* Light mode 
+* Audio
 
-### Code Splitting
+## 📸 Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*(To be updated)*
 
-### Analyzing the Bundle Size
+## 🙌 Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Inspired by the original **Wordle** game by Josh Wardle.
 
-### Making a Progressive Web App
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is for personal learning and portfolio purposes.
